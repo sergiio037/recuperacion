@@ -4,8 +4,8 @@ import okhttp3.Request
 class ObtenerPokemonRequest {
 
     companion object {
-        fun get(): MutableList<Pokemon> {
-            val listaPokemon = mutableListOf<Pokemon>()
+        fun get(): ListaPokemon {
+            val listaPokemon = ListaPokemon()
             val client = OkHttpClient()
             for (i in 1..9) {
                 val request = Request.Builder()
@@ -16,7 +16,7 @@ class ObtenerPokemonRequest {
                 if (response.isSuccessful) {
                     response.body?.string().let { responseBody ->
                         val pokemon = gson.fromJson(responseBody, Pokemon::class.java)
-                        listaPokemon.add(pokemon)
+                        listaPokemon.agregar(pokemon)
                     }
 
                 } else

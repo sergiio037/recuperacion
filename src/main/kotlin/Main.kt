@@ -5,13 +5,19 @@ var gson = Gson()
 fun main() {
     val listaPokemon = ObtenerPokemonRequest.get()
 
-    listaPokemon.forEach {
-        println(it.decirNombreYTipo())
+    listaPokemon.imprimirPokemons()
+
+    println("¿Escribe el nombre del Pokemon que quieres buscar?")
+    val nombreBuscado = readLine()
+    nombreBuscado?.let {
+        val listaPokemonFiltrada = listaPokemon.buscarPokemonPorNombre(it)
+        listaPokemonFiltrada.imprimirPokemons()
     }
 
-    println("¿Escribre el tipo que quieres buscar?")
+    println("¿Escribe el tipo que quieres buscar?")
     val tipoBuscado = readLine()
     tipoBuscado?.let {
-        // TODO muéstrame todos los pokemon de ese tipo. Si no hay, dime que no hay
+        val listaPokemonFiltrada = listaPokemon.buscarPokemonPorTipo(it)
+        listaPokemonFiltrada.imprimirPokemons()
     }
 }
