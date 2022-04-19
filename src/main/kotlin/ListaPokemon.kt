@@ -1,7 +1,21 @@
+import java.io.File
 
 class ListaPokemon(var listaPokemon : MutableList<Pokemon> = mutableListOf()) {
 
 
+    companion object{
+        const val filePath = "pokemons.json"
+
+        fun fileExist() : Boolean {
+            return File("hola.txt").exists()
+        }
+
+        fun cargarListaPokemonDeFichero() : ListaPokemon {
+            val lista = gson.fromJson(File(filePath).readText(), ListaPokemon::class.java)
+            return lista
+        }
+
+    }
 
     fun agregar(pokemon: Pokemon) {
         listaPokemon.add(pokemon)
@@ -39,5 +53,10 @@ class ListaPokemon(var listaPokemon : MutableList<Pokemon> = mutableListOf()) {
         }
 
         return ListaPokemon(listaFiltrada.toMutableList())
+    }
+
+    fun guardarEnFichero(){
+        val file = File(filePath)
+        file.writeText(gson.toJson(this))
     }
 }

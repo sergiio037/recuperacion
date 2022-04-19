@@ -1,9 +1,21 @@
 import com.google.gson.Gson
+import java.io.File
 
 var gson = Gson()
 
 fun main() {
-    val listaPokemon = ObtenerPokemonRequest.get()
+
+    var a = File("aaaa.txt")
+    a.writeText("dalshhjadfskladfs")
+    println(a.readText())
+    a.exists()
+
+    val listaPokemon = if (ListaPokemon.fileExist()) {
+        ListaPokemon.cargarListaPokemonDeFichero()
+    } else {
+        ObtenerPokemonRequest.get()
+    }
+    listaPokemon.guardarEnFichero()
 
     listaPokemon.imprimirPokemons()
 
