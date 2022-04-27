@@ -4,25 +4,38 @@ import okhttp3.Request
 class ObtenerPokemonRequest {
 
     companion object {
-        fun get(): ListaPokemon {
-            val listaPokemon = ListaPokemon()
+        fun get(pokemonId : Int): Pokemon {
             val client = OkHttpClient()
-            for (i in 1..9) {
-                val request = Request.Builder()
-                    .url("https://pokeapi.co/api/v2/pokemon/${i}")
-                    .build()
-                val response = client.newCall(request).execute()
+            val request = Request.Builder()
+                .url("https://pokeapi.co/api/v2/pokemon/${pokemonId}")
+                .build()
+            val response = client.newCall(request).execute()
 
-                if (response.isSuccessful) {
-                    response.body?.string().let { responseBody ->
-                        val pokemon = gson.fromJson(responseBody, Pokemon::class.java)
-                        listaPokemon.agregar(pokemon)
-                    }
+            if (response.isSuccessful) {
+                response.body?.string().let { responseBody ->
+                    return gson.fromJson(responseBody, Pokemon::class.java)
+                }
 
-                } else
-                    println("Algo ha ido mal")
-            }
-            return listaPokemon
+            } else
+                println("Algo ha ido mal")
+            return Pokemon(0, 0, "Unknown", 0)
+        }
+
+        fun get(pokemonName : String): Pokemon {
+            val client = OkHttpClient()
+            val request = Request.Builder()
+                .url("https://pokeapi.co/api/v2/pokemon/${pokemonName}")
+                .build()
+            val response = client.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                response.body?.string().let { responseBody ->
+                    return gson.fromJson(responseBody, Pokemon::class.java)
+                }
+
+            } else
+                println("Algo ha ido mal")
+            return Pokemon(0, 0, "Unknown", 0)
         }
     }
 
