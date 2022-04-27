@@ -3,20 +3,22 @@ import org.junit.jupiter.api.Test;
 public class ObtenerPokemonTest {
 
     @Test
-    public void probarPokemon1(){
-        System.out.println(ObtenerPokemonRequest.Companion.get(1));
-        System.out.println(ObtenerPokemonRequest.Companion.get("bulbasaur"));
+    public void ejemplo(){
+        Pokemon bulbasaur = ObtenerPokemonRequest.Companion.get(1);
+        System.out.println(bulbasaur);
+        Pokemon ivysaur = ObtenerPokemonRequest.Companion.get("bulbasaur");
+        System.out.println(ivysaur);
     }
 
 
     @Test
-    public void probarPokemon2Nombre(){
-        // TODO Comprueba que al preguntar por Pokémon con id 2 obtienes a ivisaur.
+    public void probarPokemon3Nombre(){
+        // TODO Comprueba que al preguntar por Pokémon con id 3 obtienes a venasaur.
     }
 
     @Test
-    public void probarPokemon2Id(){
-        // TODO Comprueba que al preguntar por Pokémon con ivisaur obtienes el id 2.
+    public void probarPokemon3Id(){
+        // TODO Comprueba que al preguntar por Pokémon con venasaur obtienes el id 2.
     }
 
     @Test
@@ -31,7 +33,7 @@ public class ObtenerPokemonTest {
 
     @Test
     public void probarPokemon4a6(){
-        // TODO Comprueba que los Pokémon (id = 4, id = 5, id = 6) obtienes a charmander, wartortel y blastoise.
+        // TODO Comprueba que los Pokémon (id = 4, id = 5, id = 6) obtienes a charmander, charmeleon y charizard.
     }
 
     @Test
