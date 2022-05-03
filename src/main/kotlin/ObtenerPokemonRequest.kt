@@ -34,8 +34,7 @@ class ObtenerPokemonRequest {
                 }
 
             } else
-                println("Algo ha ido mal")
-            return Pokemon(0, 0, "Unknown", 0)
+                throw ObtenerPokemonsRequest.ExceptionEnRed()
         }
     }
 

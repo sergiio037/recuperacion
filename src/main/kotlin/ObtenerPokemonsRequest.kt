@@ -29,7 +29,6 @@ class ObtenerPokemonsRequest {
                 } else
                     throw ExceptionEnRed()
             }
-            list.add(Pokemon(0, 0, "Unknown", 0))
             return list.toTypedArray()
         }
 
