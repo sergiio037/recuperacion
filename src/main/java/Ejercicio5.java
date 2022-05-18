@@ -1,14 +1,14 @@
 public class Ejercicio5 {
 
-    public Personaje[] arrayPersonajes = new Personaje[0];
+    public Personajes personajes;
 
-    public void iniciarEjercicio5() {
-        arrayPersonajes = ObtenerPersonajesRequest.Companion.get();
+    public Ejercicio5() {
+        personajes = new Personajes(ObtenerPersonajesRequest.Companion.get());
     }
 
-    public Personaje[] getAll(){
-        return arrayPersonajes;
-    }
+    // TODO Haz una función que te devuelva un array compuesto por:
+    //  Personajes que tienen imagen asociada.
+
 
 
 }
