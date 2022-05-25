@@ -5,13 +5,13 @@ class PersonasFun {
 
     companion object {
 
-        fun esEspanol(persona: Result) : Boolean {
+        fun esEspanol(persona: Persona) : Boolean {
             if (persona.id.name != "DNI") return false
             if (persona.id.value != null) return true
             else throw DocumentoInvalidoException()
         }
 
-        fun passSegura(persona: Result) : Boolean {
+        fun passSegura(persona: Persona) : Boolean {
             return passSegura(persona.login.password)
         }
 

@@ -1,18 +1,18 @@
 public class Examen {
 
-    public Personas personas;
+    public GestorDePersonas gestorDePersonas;
 
     public Examen() {
-        personas = ObtenerPersonasRequest.Companion.get();
+        gestorDePersonas = ObtenerPersonasRequest.Companion.get();
     }
 
     /**
-     * busca en personas.getResults() aquellas personas que son mujeres y devuelve una array de "Personas" con ellas
+     * busca en gestorDePersonas.getPersonas() aquellas personas que son mujeres y devuelve una array de "Personas" con ellas
      * @return array con las personas que son mujeres
      */
-    public Result[] obtenerMujeres(){
+    public Persona[] obtenerMujeres(){
         // TODO (0,5 punto) Completa la función y realiza todos los test que sean necesarios para probarla.
-        return personas.getResults();
+        return gestorDePersonas.getPersonas();
     }
 
     /**
@@ -21,20 +21,20 @@ public class Examen {
      * @param arrayPersonas array de personas sobre las que vas a buscar
      * @return
      */
-    public Result[] obtenerHombres(Result[] arrayPersonas) throws NullPointerException, PersonaNulaException  {
+    public Persona[] obtenerHombres(Persona[] arrayPersonas) throws NullPointerException, PersonaNulaException  {
         // TODO (0,5 punto) Completa la función y realiza todos los test que sean necesarios para probarla.
-        return new Result[0];
+        return new Persona[0];
     }
 
     /**
-     * Busca en personas.getResults() y devuelve un array de personas cuyo número de teléfono contiene el texto introducido (en el orden exacto)
+     * Busca en gestorDePersonas.getPersonas() y devuelve un array de personas cuyo número de teléfono contiene el texto introducido (en el orden exacto)
      * @param texto que quieres buscar en el número de teléfono
      * @return aquellas personas que en su número de teléfono se encuentra el texto especificado.
      * @throws NullPointerException si texto es null
      */
-    public Result[] obtenerPersonasCuyoTelefonoContiene(String texto) throws NullPointerException {
+    public Persona[] obtenerPersonasCuyoTelefonoContiene(String texto) throws NullPointerException {
         // TODO (0,5 punto) Completa la función y realiza todos los test que sean necesarios para probarla.
-        return personas.getResults();
+        return gestorDePersonas.getPersonas();
     }
 
     /**
@@ -44,7 +44,7 @@ public class Examen {
      * @throws EmailSinNombreException si el email de alguna persona no empieza por su nombre.
      * @throws PersonaNulaException si personas == null
      */
-    public void comprobarEmailEmpiezaPorNombre(Result persona) throws EmailSinNombreException, PersonaNulaException {
+    public void comprobarEmailEmpiezaPorNombre(Persona persona) throws EmailSinNombreException, PersonaNulaException {
         // TODO (1,5 punto) Completa la función y realiza todos los test que sean necesarios para probarla.
         // Tip: El "nombre" está compuesto por 3 atributos: "title", "first", "last".
         throw new EmailSinNombreException();
@@ -60,7 +60,7 @@ public class Examen {
      * @throws NullPointerException si una persona es null
      * @throws PersonaNulaException si una persona es null
      */
-    public boolean verificarTitulos(Result[] personas) throws PersonaNulaException, NullPointerException {
+    public boolean verificarTitulos(Persona[] personas) throws PersonaNulaException, NullPointerException {
         // TODO (2 punto) Completa la función y realiza todos los test que sean necesarios para probarla.
         // Tip: El "nombre" está compuesto por 3 atributos: "title", "first", "last".
         return true;

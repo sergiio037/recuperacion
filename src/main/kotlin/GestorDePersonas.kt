@@ -1,24 +1,24 @@
 
-data class Personas (
-    val results: Array<Result>,
+data class GestorDePersonas (
+    val personas: Array<Persona>,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Personas
+        other as GestorDePersonas
 
-        if (!results.contentEquals(other.results)) return false
+        if (!personas.contentEquals(other.personas)) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return results.contentHashCode()
+        return personas.contentHashCode()
     }
 }
 
-data class Result (
+data class Persona (
     val gender: String,
     val name: Name,
     val location: Location,
