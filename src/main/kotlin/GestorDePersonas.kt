@@ -1,6 +1,6 @@
 
 data class GestorDePersonas (
-    val personas: Array<Persona>,
+    var personas: Array<Persona>,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -19,72 +19,72 @@ data class GestorDePersonas (
 }
 
 data class Persona (
-    val gender: String,
-    val name: Name,
-    val location: Location,
-    val email: String,
-    val login: Login,
-    val dob: Dob,
-    val registered: Dob,
-    val phone: String,
-    val cell: String,
-    val id: ID,
-    val picture: Picture,
-    val nat: String
+    var gender: String,
+    var name: Name,
+    var location: Location,
+    var email: String,
+    var login: Login,
+    var dob: Dob,
+    var registered: Dob,
+    var phone: String,
+    var cell: String,
+    var id: ID,
+    var picture: Picture,
+    var nat: String
 )
 
 data class Dob (
-    val date: String,
-    val age: Long
+    var date: String,
+    var age: Long
 )
 
 data class ID (
-    val name: String,
-    val value: String? = null
+    var name: String,
+    var value: String? = null
 )
 
 data class Location (
-    val street: Street,
-    val city: String,
-    val state: String,
-    val country: String,
-    val coordinates: Coordinates,
-    val timezone: Timezone
+    var street: Street,
+    var city: String,
+    var state: String,
+    var country: String,
+    var coordinates: Coordinates,
+    var timezone: Timezone
 )
 
 data class Coordinates (
-    val latitude: String,
-    val longitude: String
+    var latitude: String,
+    var longitude: String
 )
 
 data class Street (
-    val number: Long,
-    val name: String
+    var number: Long,
+    var name: String
 )
 
 data class Timezone (
-    val offset: String,
-    val description: String
+    var offset: String,
+    var description: String
 )
 
 data class Login (
-    val uuid: String,
-    val username: String,
+    var uuid: String,
+    var username: String,
     var password: String?,
-    val salt: String,
-    val md5: String,
-    val sha1: String,
-    val sha256: String
+    var salt: String,
+    var md5: String,
+    var sha1: String,
+    var sha256: String
 )
 
 data class Name (
-    val title: String,
-    val first: String,
-    val last: String
+    var title: String,
+    var first: String,
+    var last: String
 )
 
 data class Picture (
-    val large: String,
-    val medium: String,
-    val thumbnail: String
+    var large: String,
+    var medium: String,
+    var thumbnail: String
 )

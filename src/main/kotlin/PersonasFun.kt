@@ -21,6 +21,15 @@ class PersonasFun {
             return regex.containsMatchIn(pass)
         }
 
+
+        private fun esIrlandes(persona: Persona?) : Boolean {
+            if (persona == null)
+                throw PersonaNulaException()
+            if (persona.location.country == "Ireland" && persona.nat != "IE" || persona.location.country != "Ireland" && persona.nat == "IE")
+                throw ErrorEnNacionalidadException()
+            else
+                return persona.nat == "IE"
+        }
     }
 
 
